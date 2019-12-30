@@ -2,10 +2,12 @@ package theads.hho;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class H2O {
     Semaphore hLock = new Semaphore(2);
     Semaphore oLock = new Semaphore(1);
+    AtomicInteger num = new AtomicInteger(0);
     public H2O() {
 
     }
@@ -15,6 +17,8 @@ public class H2O {
         hLock.acquire();
         // releaseHydrogen.run() outputs "H". Do not change or remove this line.
         releaseHydrogen.run();
+        int inc = num.incrementAndGet();
+
         checkLockReset();
     }
 
