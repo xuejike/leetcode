@@ -14,13 +14,13 @@ public class Main {
 
     static class Solution {
         public int[] findErrorNums(int[] nums) {
-            int[] ns = new int[nums.length];
+            byte[] ns = new byte[nums.length];
             int repNum = 0;
             for (int i : nums) {
-                if (ns[i-1] == i){
+                if (ns[i-1] == 1){
                     repNum = i;
                 }
-                ns[i-1] = i;
+                ns[i-1] = 1;
             }
             int lost = 0;
             for (int i = 0; i < nums.length; i++) {
